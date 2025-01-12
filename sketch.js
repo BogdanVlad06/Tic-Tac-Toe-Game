@@ -85,6 +85,12 @@ function mouseClicked() {
     let posX = Math.floor(mouseX / scale), posY =  Math.floor(mouseY / scale);
     if (!grid[posX][posY]) { // check if cell is empty and marks it 
       grid[posX][posY] = playerTurn;
+      // change player turn
+      if (playerTurn == 1) { 
+        playerTurn = 2;
+      } else {
+        playerTurn = 1;
+      }
     }
     let status = checkStatus();
     if (status != undefined && status != 0) {
@@ -103,12 +109,6 @@ function mouseClicked() {
         console.log("Player " + playerTurn + " wins!");
       }
       noLoop(); // Stop the draw loop
-    }
-    // change player turn
-    if (playerTurn == 1) { 
-      playerTurn = 2;
-    } else {
-      playerTurn = 1;
     }
   }
 }
